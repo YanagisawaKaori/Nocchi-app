@@ -1,0 +1,22 @@
+{
+  "name": "nocchi-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.2",
+    "deepmerge": "^4.3.1",
+    "sass": "^1.86.3",
+    "sass-loader": "^16.0.5",
+    "vite": "^6.3.1",
+    "vuetify": "^3.8.0-beta.0"
+  }
+}

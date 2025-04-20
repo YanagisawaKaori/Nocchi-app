@@ -1,6 +1,6 @@
 // extractKeyword.js
-import { extractKeywordWithGPT } from '@utils/extract/withgpt'
-import { extractKeywordWithRegexOrLibrary } from '@utils/extract/withregexorlibrary'
+import { extractKeywordWithGPT } from '@/modules/question/utils/extract/withgpt'
+import { extractKeywordWithRegexOrLibrary } from '@/modules/question/utils/extract/withregexorlibrary'
 
 export const extractKeyword = async (text) => {
   const local = await extractKeywordWithRegexOrLibrary(text)

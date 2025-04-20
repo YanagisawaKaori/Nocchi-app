@@ -3,10 +3,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
+      "@modules/*": ["src/modules/*"],
       "@utils/*": ["src/utils/*"],
       "@stores/*": ["src/stores/*"],
-      "@composable/*": ["src/composable/*"]
+      "@composables/*": ["src/composables/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src"]

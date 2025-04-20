@@ -1,5 +1,5 @@
 // composables/useSubmitQuestion.js
-import { saveStructuredToNotion } from '@utils/notion'
+import { saveStructuredToNotion } from '@/modules/question/utils/notion'
 
 const structuredPrompt = (q) => `${q} を構造的にJSON形式で教えてください`
 

@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useSubmitQuestion } from '@composable/useSubmitQuestion'
+import { useSubmitQuestion } from '@/modules/question/composable/useSubmitQuestion'
 const question = ref('')
 const loading = ref(false)
 const emit = defineEmits(['answered'])

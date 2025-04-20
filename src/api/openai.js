@@ -1,5 +1,5 @@
-import { getModel } from '@/utils/model'
-import { KANI_SYSTEM_PROMPT } from '@/utils/prompts'
+import { getModel } from '@/modules/question/utils/model'
+import { KANI_SYSTEM_PROMPT } from '@/modules/question/utils/prompts'
 
 export const fetchChatCompletion = async (userContent, options = {}) => {
   const {

@@ -16,9 +16,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import TimerPanel from '@components/TimerPanel.vue'
-import QuestionPanel from '@components/QuestionPanel.vue'
-import AnswerPanel from '@components/AnswerPanel.vue'
+import TimerPanel from '@/modules/timer/components/timerpanel.vue'
+import QuestionPanel from '@/modules/question/components/questionpanel.vue'
+import AnswerPanel from '@/modules/question/components/answepanel.vue'
 
 const answer = ref('')
 const handleAnswer = (newAnswer) => {

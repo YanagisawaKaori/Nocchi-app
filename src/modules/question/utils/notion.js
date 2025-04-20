@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client'
-import { extractKeyword } from '@utils/extract/keyword'
+import { extractKeyword } from '@/modules/question/utils/extract/keyword'
 
 
 const notion = new Client({

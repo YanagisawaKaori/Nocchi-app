@@ -1,17 +1,13 @@
 import { Client } from '@notionhq/client'
+import { extractKeyword } from '@utils/extract/keyword'
+
 
 const notion = new Client({
   auth: import.meta.env.VITE_NOTION_API_KEY
 })
 
-// 質問から「〜について」の〇〇部分だけ抽出
-const extractKeyword = (text) => {
-  const match = text.match(/(.+?)について(教えて|解説して)?/)
-  return match ? match[1] : text
-}
-
 export const saveStructuredToNotion = async (question, parsed, shortAnswer) => {
-  const keyword = extractKeyword(question)
+  const keyword = await extractKeyword(question)
 
   const createdPage = await notion.pages.create({
     parent: {
@@ -26,13 +22,16 @@ export const saveStructuredToNotion = async (question, parsed, shortAnswer) => {
       '図解・フロー': { rich_text: [{ text: { content: parsed['図解・フロー'] || '' } }] },
       '実務での使われ方': { rich_text: [{ text: { content: parsed['実務での使われ方'] || '' } }] },
       '使える形に落とし込む': { rich_text: [{ text: { content: parsed['使える形に落とし込む'] || '' } }] },
-      '参照元': { url: parsed['参照元'] || 'https://example.com' },
-      カテゴリ: { select: { name: parsed['カテゴリ'] || 'その他' } },
+      '参照元': parsed['参照元']
+        ? { url: parsed['参照元'] }
+        : undefined,
+      カテゴリ: parsed['カテゴリ']
+        ? { select: { name: parsed['カテゴリ'] } }
+        : undefined,
       '疑問・未解決メモ': { rich_text: [] }
     }
   })
 
-  // 通常回答をブロックで本文に追記
   await notion.blocks.children.append({
     block_id: createdPage.id,
     children: [
@@ -47,4 +46,6 @@ export const saveStructuredToNotion = async (question, parsed, shortAnswer) => {
   })
 
   console.log('✅ Notion構造＋本文保存完了')
+
+  return createdPage.id
 }

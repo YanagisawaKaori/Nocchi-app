@@ -31,7 +31,7 @@ const submitQuestion = async () => {
         'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-4o',
+        model: getModel('full'),
         messages: [{ role: 'user', content: question.value }],
         temperature: 0.7
       })
@@ -50,7 +50,7 @@ const submitQuestion = async () => {
         'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-4o',
+        model: getModel('full'),
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5
       })
